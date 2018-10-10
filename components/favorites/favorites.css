@@ -1,0 +1,15 @@
+.cs142-favorites-wide {
+    width: 100%;
+}
+
+.cs142-favorites-hidden {
+    visibility: hidden;
+}
+
+.cs142-favorites-modal-image {
+    max-width: 50vw;
+}
+
+.cs142-favorites-center {
+    text-align: center;
+}

@@ -1,0 +1,95 @@
+<md-content class="md-padding cs142-photos-fill-height" layout-xs="column" layout-sm="column" layout="row" layout-wrap>
+  <div ng-if="!userPhotos.photos.length">
+    <h1>No photos yet, check back later</h1>
+  </div>
+
+  <div flex-xs="100" flex-sm="100" flex="50" flex ng-repeat="photo in userPhotos.photos" class="cs142-photos-card-container">
+    <md-card class="cs142-photos-photo-card">
+      <img ng-src="/images/{{photo.file_name}}" class="md-card-image">
+
+      <div layout="row">
+        <!-- Favorite buttons -->
+        <md-button
+          class="md-icon-button md-primary"
+          aria-label="Favorite"
+          ng-click="userPhotos.favorite(photo._id)"
+          ng-if="!photo.favorited"
+        >
+          <md-icon md-svg-icon="images/icons/favorite_outline.svg"></md-icon>
+        </md-button>
+        <md-button
+          class="md-icon-button md-primary"
+          aria-label="Un-Favorite"
+          ng-click="userPhotos.unfavorite(photo._id)"
+          ng-if="photo.favorited"
+        >
+          <md-icon md-svg-icon="images/icons/favorite_solid.svg"></md-icon>
+        </md-button>
+
+        <!-- Like buttons -->
+        <md-button
+          class="md-icon-button md-primary"
+          aria-label="Like"
+          ng-click="userPhotos.like(photo._id)"
+          ng-if="!photo.liked"
+        >
+          <md-icon md-svg-icon="images/icons/like_outline.svg"></md-icon>
+        </md-button>
+        <md-button
+          class="md-icon-button md-primary"
+          aria-label="Un-Like"
+          ng-click="userPhotos.dislike(photo._id)"
+          ng-if="photo.liked"
+        >
+          <md-icon md-svg-icon="images/icons/like_solid.svg"></md-icon>
+        </md-button>
+
+        <p ng-if="photo.numLikes === 1">1 person likes this photo</p>
+        <p ng-if="photo.numLikes !== 1">{{photo.numLikes}} people like this photo</p>
+      </div>
+
+      <md-card-content>
+        <p class="md-body-2 cs142-photos-photo-date-time">{{photo.date_time}}</p>
+
+        <md-list ng-if="photo.comments.length > 0">
+          <md-list-item ng-repeat="comment in photo.comments">
+            <div class="md-list-item-text">
+              <a class="cs142-photos-no-decoration" ng-href="#!/users/{{comment.user._id}}">
+                <p class="md-headline cs142-photos-comment-name">{{comment.user.first_name}} {{comment.user.last_name}}</p>
+              </a>
+              <p class="md-body-2 cs142-photos-comment-date-time">{{comment.date_time}}</p>
+              <p class="md-subhead cs142-photos-comment-text">{{comment.comment}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+
+        <p class="md-subhead" ng-if="photo.comments.length === 0 || !photo.comments">
+          There are no comments yet for this photo.
+        </p>
+
+        <hr/>
+
+        <form
+          name="newCommentForm"
+          ng-submit="userPhotos.addComment(photo)"
+          layout="column"
+        >
+        <md-input-container flex="100" class="cs142-photos-comment-input">
+          <label>New Comment Text</label>
+          <input name="commentText" ng-model="photo.newCommentText" flex="100">
+        </md-input-container>
+
+        <div layout="row" layout-align="end">
+          <md-button
+          class="md-primary"
+          type="submit"
+          ng-disabled="!newCommentForm.commentText.$viewValue">
+          Add Comment
+        </md-button>
+      </div>
+    </form>
+
+  </md-card-content>
+</md-card>
+</div>
+</md-content>

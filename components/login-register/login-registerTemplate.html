@@ -1,0 +1,100 @@
+<md-content>
+  <div layout="row" layout-align="space-around center">
+    <div ng-if="loginRegister.currentState === loginRegister.StateEnum.LOGIN" layout="column" flex="80">
+      <form name="loginForm" ng-submit="loginRegister.login()" layout="column" flex="80" layout-align="space-around stretch">
+        <md-input-container>
+          <label>Login Name</label>
+          <input required name="loginName" ng-model="loginRegister.loginName">
+          <div ng-if="loginForm.loginName.$touched && loginForm.loginName.$invalid" ng-messages="loginForm.loginName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input required name="password" type="password" ng-model="loginRegister.password">
+          <div ng-if="loginForm.password.$touched && loginForm.password.$invalid" ng-messages="loginForm.password.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <div layout="row" layout-align="center stretch">
+          <md-button type="submit">Login</md-button>
+        </div>
+      </form>
+      <div layout="row" layout-align="center stretch">
+        <md-button ng-click="loginRegister.currentState = loginRegister.StateEnum.REGISTER">Register</md-button>
+      </div>
+    </div>
+
+    <div ng-if="loginRegister.currentState === loginRegister.StateEnum.REGISTER" layout="column" flex="80">
+      <form name="registerForm" ng-submit="loginRegister.register()" layout="column" flex="100" layout-align="center stretch">
+        <md-input-container>
+          <label>Login Name</label>
+          <input required name="newLoginName" ng-model="loginRegister.newLoginName">
+          <div ng-if="registerForm.newLoginName.$touched && registerForm.newLoginName.$invalid" ng-messages="registerForm.newLoginName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input required type="password" name="newPassword" ng-model="loginRegister.newPassword">
+          <div ng-if="registerForm.newPassword.$touched && registerForm.newPassword.$invalid" ng-messages="registerForm.newPassword.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Please Repeat Your Password</label>
+          <input required type="password" name="newPasswordRepeat" ng-model="loginRegister.newPasswordRepeat">
+          <div ng-if="registerForm.newPasswordRepeat.$touched && registerForm.newPasswordRepeat.$invalid" ng-messages="registerForm.newPasswordRepeat.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>First Name</label>
+          <input required name="firstName" ng-model="loginRegister.firstName">
+          <div ng-if="registerForm.firstName.$touched && registerForm.firstName.$invalid" ng-messages="registerForm.firstName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Last Name</label>
+          <input required name="lastName" ng-model="loginRegister.lastName">
+          <div ng-if="registerForm.lastName.$touched && registerForm.lastName.$invalid" ng-messages="registerForm.lastName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Location</label>
+          <input required name="location" ng-model="loginRegister.location">
+          <div ng-if="registerForm.location.$touched && registerForm.location.$invalid" ng-messages="registerForm.location.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Occupation</label>
+          <input required name="occupation" ng-model="loginRegister.occupation">
+          <div ng-if="registerForm.occupation.$touched && registerForm.occupation.$invalid" ng-messages="registerForm.occupation.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Description</label>
+          <textarea required name="description" ng-model="loginRegister.description" rows="3" md-select-on-focus></textarea>
+          <div ng-if="registerForm.description.$touched && registerForm.description.$invalid" ng-messages="registerForm.description.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <div layout="row" layout-align="center stretch">
+          <md-button type="submit">Register</md-button>
+        </div>
+      </form>
+      <div layout="row" layout-align="center stretch">
+        <md-button ng-click="loginRegister.currentState = loginRegister.StateEnum.LOGIN">Cancel</md-button>
+      </div>
+    </div>
+  </div>
+
+  <div ng-show="loginRegister.errorMessage" class="md-body-1 cs142-login-register-error">
+    {{loginRegister.errorMessage}}
+  </div>
+
+</md-content>

@@ -1,0 +1,58 @@
+<div layout="column">
+  <md-card flex="100">
+    <md-card-content>
+      <p class="md-title cs142-user-detail-card-title">{{userDetail.user.first_name}} {{userDetail.user.last_name}}</p>
+      <p class="md-subhead">Location: {{userDetail.user.location}}</p>
+      <p class="md-subhead">Occupation: {{userDetail.user.occupation}}</p>
+      <p class="md-subhead">Description: {{userDetail.user.description}}</p>
+      <a ng-href="#!/photos/{{userDetail.user._id}}">View photos</a>
+    </md-card-content>
+  </md-card>
+
+  <div layout="column" layout-gt-sm="row">
+    <div flex="50">
+      <md-card ng-if="!userDetail.newestPhoto">
+        <md-card-content>
+          <p class="md-subhead">This user has not uploaded any photos. Please check back later to see their newest and most commented photos.</p>
+        </md-card-content>
+      </md-card>
+
+      <md-card ng-if="userDetail.newestPhoto">
+        <md-card-title class="cs142-user-detail-card-title-box">
+          <md-card-title-text>
+            <span class="md-title cs142-user-detail-card-title">Newest Photo</span>
+            <span class="md-subhead">{{userDetail.newestPhoto.date_time}}</span>
+          </md-card-title-text>
+          <md-card-title-media class="cs142-user-detail-card-media">
+            <a ng-href="#!/photos/{{userDetail.user._id}}">
+              <div class="md-media-sm card-media">
+                <img
+                  ng-src="/images/{{userDetail.newestPhoto.file_name}}"
+                  class="cs142-user-detail-slide-down">
+              </div>
+            </a>
+          </md-card-title-media>
+        </md-card-title>
+      </md-card>
+    </div>
+
+    <md-card ng-if="userDetail.mostCommentedPhoto" flex="50">
+      <md-card-title class="cs142-user-detail-card-title-box">
+        <md-card-title-text>
+          <span class="md-title cs142-user-detail-card-title">Most Commented Photo</span>
+          <span class="md-subhead">{{userDetail.mostCommentedPhoto.date_time}}</span>
+          <span class="md-subhead">Number of Comments: {{userDetail.mostCommentedPhoto.numComments}}</span>
+        </md-card-title-text>
+        <md-card-title-media class="cs142-user-detail-card-media">
+          <a ng-href="#!/photos/{{userDetail.user._id}}">
+            <div class="md-media-sm card-media">
+              <img 
+                ng-src="/images/{{userDetail.mostCommentedPhoto.file_name}}" 
+                class="cs142-user-detail-slide-down">
+            </div>
+          </a>
+        </md-card-title-media>
+      </md-card-title>
+    </md-card>
+  </div>
+</div>

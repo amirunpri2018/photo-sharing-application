@@ -1,0 +1,62 @@
+Project #8 - Submission form
+
+Please fill in this form and submit it with your project #8.
+
+Enter no more than 5 user stories that you did for the assignment that you would like to be
+graded on. For each story include the following information:
+
+Story number and name: 1 - Extend User Profile Detail With Usage
+Story points: 3
+Brief description to see the story in action:
+
+- On each users page there are two new cards:
+  1) The most recently uploaded photo. This updates immediately if an image is uploaded while on this page.
+  2) The most commented on photo for that user.
+- If the user does not have any images, a card shows explaining that the user has no images.
+
+Story number and name: 6 - Photo Like Votes
+Story points: 4
+Brief description to see the story in action:
+
+- Go to the photos page for any user.
+- Every photo will have an empty thumbs up below it on the card.
+- Clicking that thumbs up likes the photo.
+  - An alert will pop up in the upper right corner alerting you the like was successful.
+  - The number of likes next to the like button will increase by 1.
+  - The like button will become filled in.
+- Clicking the filled in thumbs up button dislikes the photosOfUser.
+  - An alert will pop up in the upper right corner alerting you the dislike was successful.
+  - The number of likes next to the like button will decrease by 1.
+  - The like button will become empty again  .
+- Each user may only like any photo one timestamp.
+- Multiple users can like the same photo.
+
+Story number and name: 7 - Favorite List of Photos for Users
+Story points: 6
+Brief description to see the story in action:
+
+- Go to the photos page for any user.
+- Every photo will have an empty heart below it on the card.
+- Clicking that heart favorites the photo.
+  - An alert will pop up in the upper right corner alerting you the favorite was successful
+  - The heart will become filled in.
+- Clicking the filled in heart unfavorites the photo.
+  - An alert will pop up in the upper right corner alerting you the unfavorite was successful
+  - The heart will become empty again.
+- When a user is logged in, a button appears at the top of the sidebar that takes
+  that user to the favorites page.
+- The favorites page contains thumbnails of all photos that are favorited by
+  the logged in user.
+- Underneath each thumbnail is a button that will unfavorite the picture when clicked.
+  - An alert will pop up in the upper right corner alerting you the unfavorite was successful.
+  - The image will disappear from the favorites page.
+- For any image that appears on the favorites page, clicking on the image will open
+  a modal containing the image with the time of upload underneath.
+
+Total Story Points: 13
+
+Marketing Video URL (ensure permissions are set to public viewing): https://youtu.be/IVTrqjR4JXE
+
+Is it OK with you if we post your Marketing Video URL on the class discussion forum? No
+
+Any special instructions for Grading (should be easy to run app from new machine): None

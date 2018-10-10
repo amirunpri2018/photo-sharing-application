@@ -1,0 +1,9 @@
+<div ng-repeat="user in userList.users">
+  <a class="cs-142-user-list-link" ng-href="#!/users/{{user._id}}">
+    <md-card>
+      <md-card-content>
+        <h3 class="md-title">{{user.first_name}} {{user.last_name}}</h3>
+      </md-card-content>
+    </md-card>
+  </a>
+</div>

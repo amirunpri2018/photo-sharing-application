@@ -1,0 +1,38 @@
+<div layout="row">
+    <div ng-if="favorites.isLoading">
+        <h3>Loading...</h3>
+    </div>
+
+    <div ng-if="!favorites.isLoading">
+        <div ng-if="!favorites.photos.length" layout-fill layout-wrap>
+            <h3>You don't have any currently favored images.</h3>
+        </div>
+
+        <div layout="row" layout-wrap layout-fill layout-padding layout-align="center center">
+            <div ng-repeat="photo in favorites.photos" layout="column" flex="25">
+                <img
+                    ng-src="/images/{{photo.file_name}}"
+                    class="cs142-favorites-wide"
+                    ng-click="favorites.openModal(photo)">
+                <md-button
+                    class="md-raised md-primary md-hue-2"
+                    ng-click="favorites.unfavorite(photo._id)">
+                    Unfavorite
+                </md-button>
+            </div>
+        </div>
+
+        <div class="cs142-favorites-hidden">
+            <div class="md-dialog-container" id="photoModal">
+                <md-dialog layout-padding>
+                    <img
+                        ng-src="/images/{{favorites.selectedPhoto.file_name}}"
+                        class="cs142-favorites-modal-image">
+                    <p class="md-body cs142-favorites-center">{{favorites.selectedPhoto.date_time}}</p>
+                </md-dialog>
+            </div>
+        </div>
+    </div>
+</div>
+
+

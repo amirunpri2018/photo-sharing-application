@@ -1,0 +1,39 @@
+/*
+CSS for the CS142 project #5 main page
+
+Since CSS uses a global name space for classes we should use class names starting with
+cs142-main- here.
+*/
+
+.cs142-main-toolbar-layout {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cs142-main-toolbar-layout p {
+  margin: 5px;
+  text-align: center;
+}
+
+.cs142-main-outlined-button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.cs142-main-outlined-button input {
+  display: none;
+}
+
+.cs142-main-no-padding {
+  padding: 0;
+}
+
+.cs142-main-center {
+  text-align: center;
+}
+
+.cs142-main-block {
+  display: block;
+}
